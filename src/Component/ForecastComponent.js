@@ -27,8 +27,12 @@ function ForecastComponent({ location, apiKey }) {
       }
     };
 
+
+
     fetchForecastData(); // Call fetchForecastData when location or apiKey changes
   }, [location, apiKey]); // Depend on location and apiKey changes
+
+
 
   return (
     <div>
@@ -47,5 +51,6 @@ function ForecastComponent({ location, apiKey }) {
     </div>
   );
 }
+
 
 export default ForecastComponent;

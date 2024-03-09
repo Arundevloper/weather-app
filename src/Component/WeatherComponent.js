@@ -27,6 +27,8 @@ function WeatherComponent() {
         setLoading(false); // Set loading to false after fetching data
       }
     };
+
+
   
     // Function to handle search button click event
     const handleSearch = () => {
@@ -35,6 +37,8 @@ function WeatherComponent() {
       }
     };
   
+
+
     // Function to handle allowing location access
     const handleAllowLocation = () => {
       navigator.geolocation.getCurrentPosition(
@@ -47,12 +51,15 @@ function WeatherComponent() {
         }
       );
     };
+
   
     // useEffect hook to run once after the initial render
     useEffect(() => {
       // Fetch weather data based on user's location
       handleAllowLocation();
     }, []);
+
+
   
     // API key for forecast component
     const API_KEY2='2aj7QwO7BAn76KjXQ6V8Ww5QMcPefSJU';
@@ -71,6 +78,8 @@ function WeatherComponent() {
           />
           <button onClick={handleSearch}>Search</button>
         </div>
+
+
         
         {/* Display loading message, error message, or weather information */}
         {loading ? (
@@ -85,6 +94,8 @@ function WeatherComponent() {
             <p>Humidity: {weatherData.values.humidity}%</p>
           </div>
         ) : null}
+
+        
 
         {/* Render ForecastComponent with location and API key */}
         <ForecastComponent location={location} apiKey={API_KEY2} />
