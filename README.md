@@ -29,9 +29,12 @@ No special configuration is required. Ensure that you have an API key from Tomor
 Testing can be performed manually by entering different locations and verifying the displayed weather information. Unit tests and integration tests can be implemented using testing frameworks like Jest and React Testing Library.
 
 ## Issues and Troubleshooting:
-Invalid API key: Ensure that the API key is correctly configured and has the necessary permissions to access the Tomorrow.io API.
-Network errors: Check network connectivity and ensure that the API endpoint is accessible from your environment.
-Incorrect location format: Verify that the location input is correctly formatted and can be recognized by the Tomorrow.io API.
+###Invalid API key: 
+Ensure that the API key is correctly configured and has the necessary permissions to access the Tomorrow.io API.
+###Network errors: 
+Check network connectivity and ensure that the API endpoint is accessible from your environment.
+###Incorrect location format:
+Verify that the location input is correctly formatted and can be recognized by the Tomorrow.io API.
 
 ## Contact Information:
 For any queries or assistance, please contact Arun Sharma at 7984967605.
