@@ -1,56 +1,54 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+
+
 function ForecastComponent({ location, apiKey }) {
-  // State variables for storing forecast data, loading status, and error
   const [forecastData, setForecastData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+
+
   useEffect(() => {
-    // Function to fetch forecast data from the API
+
+    //load the data of current user location
     const fetchForecastData = async () => {
-      setLoading(true); // Set loading to true while fetching data
+      setLoading(true);
       try {
-        // Fetch forecast data from the Tomorrow.io API
-        const response = await axios.get(`https://api.tomorrow.io/v4/weather/forecast?location=${encodeURIComponent(location)}&apikey=${apiKey}`);
-        setForecastData(response.data); // Set forecast data from the response
+        const apiUrl = `https://api.tomorrow.io/v4/weather/forecast?location=${encodeURIComponent(location)}&apikey=${apiKey}`;
+        console.log('API URL:', apiUrl); // Log the API URL before making the request
+        const response = await axios.get(apiUrl);
+        setForecastData(response.data);
       } catch (error) {
-        // Handle errors during API request
-        if (error.response && error.response.status >= 400) {
-          setError('Too many API calls'); // Set error message for HTTP error responses
-        } else {
-          setError(error.message); // Set error message for other errors
-        }
+        setError(error.message);
       } finally {
-        setLoading(false); // Set loading to false after fetching data
+        setLoading(false);
       }
+
     };
+    fetchForecastData();
+  }, [location, apiKey]);
 
-
-
-    fetchForecastData(); // Call fetchForecastData when location or apiKey changes
-  }, [location, apiKey]); // Depend on location and apiKey changes
 
 
 
   return (
-    <div>
-      <h2>Forecasted Weather</h2>
-      {/* Display loading message, error message, or forecast data */}
-      {loading ? (
-        <p>Loading forecast data...</p>
-      ) : error ? (
-        <p>Error: {error}</p>
-      ) : forecastData ? (
+    <div className="forecast-container">
+
+      <h2>Weather Forecast</h2>
+
+      {loading ? (<p>Loading forecast data...</p>) : error ? (<p>Error: {error}</p>) : forecastData ? (
         <div>
-          <p>Temperature: {forecastData.data.temperature}°C</p>
-          <p>Description: {forecastData.data.weatherCode}</p>
+          <p>Location: {forecastData.location.name}</p>
+          <p>Latitude: {forecastData.location.latitude}</p>
+          <p>Longitude: {forecastData.location.longitude}</p>
+          <p>Timezone: {forecastData.timezone}</p>
+          <p>Forecast Summary: {forecastData.forecast.summary}</p>
         </div>
       ) : null}
     </div>
   );
 }
-
 
 export default ForecastComponent;

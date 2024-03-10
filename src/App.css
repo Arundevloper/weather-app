@@ -1,42 +1,31 @@
-/* styles.css */
 .weather-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+  margin: auto;
+  width: 80%;
+  text-align: center;
 }
 
-.location-info {
+.weather-search {
   margin-bottom: 20px;
 }
 
-.weather-input {
-  margin-bottom: 10px;
+.weather-search input {
+  padding: 10px; /* Increased padding */
+  margin-right: 10px;
+  border: 2px solid #ccc; /* Added border */
+  border-radius: 5px; /* Added border radius */
+  font-size: 16px; /* Increased font size */
 }
 
-.weather-input input {
-  padding: 10px;
-  width: 200px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.weather-input button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+.weather-search button {
+  padding: 10px 20px; /* Added padding */
+  background-color: #007bff; /* Changed background color */
+  color: #fff; /* Changed text color */
   border: none;
-  border-radius: 5px;
+  border-radius: 5px; /* Added border radius */
   cursor: pointer;
-  margin-left:10px;
+  font-size: 16px; /* Increased font size */
 }
 
-.weather-info {
-  margin-top: 20px;
-}
-
-.weather-info p {
-  margin-bottom: 10px;
+.weather-search button:hover {
+  background-color: #0056b3; /* Darker background color on hover */
 }
